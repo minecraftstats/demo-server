@@ -50,4 +50,44 @@ config.json           # server metadata (MOTD, players, versions, ports)
 lib/varint.js         # VarInt encode/decode helper for the Java protocol
 lib/javaServer.js      # Java Edition Server List Ping implementation (TCP)
 lib/bedrockServer.js   # Bedrock Edition RakNet Unconnected Ping implementation (UDP)
+build/                # build scripts for the standalone executable
+Dockerfile / docker-compose.yml
 ```
+
+## Standalone executable
+
+A self-contained binary (no Node.js install required on the target machine) can be built using Node's [Single Executable Application](https://nodejs.org/api/single-executable-applications.html) support:
+
+```bash
+npm install
+npm run build:exe
+```
+
+This produces `dist/demo-server.exe` (Windows) or `dist/demo-server` (Linux/macOS), plus a `dist/config.json` next to it that you can edit directly. Run it with:
+
+```bash
+./dist/demo-server.exe
+```
+
+Pre-built binaries for tagged versions are also attached to the [GitHub Releases](../../releases) page.
+
+## Docker
+
+Build and run with Docker:
+
+```bash
+docker build -t minecraftstats/demo-server .
+docker run -d --name demo-server \
+  -p 25565:25565/tcp \
+  -p 19132:19132/udp \
+  -v "$(pwd)/config.json:/app/config.json:ro" \
+  minecraftstats/demo-server
+```
+
+Or with Docker Compose:
+
+```bash
+docker compose up -d
+```
+
+This exposes the Java status port (`25565/tcp`) and the Bedrock status port (`19132/udp`), and mounts the local `config.json` into the container so you can tweak the MOTD/players without rebuilding the image.

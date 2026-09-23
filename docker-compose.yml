@@ -1,0 +1,11 @@
+services:
+  demo-server:
+    build: .
+    image: minecraftstats/demo-server:latest
+    container_name: demo-server
+    restart: unless-stopped
+    ports:
+      - "25565:25565/tcp"
+      - "19132:19132/udp"
+    volumes:
+      - ./config.json:/app/config.json:ro

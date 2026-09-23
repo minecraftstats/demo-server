@@ -4,7 +4,14 @@
   "description": "A demo Minecraft server that emulates Java and Bedrock server status responses to showcase mcstats.de Server Status features.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "build:exe": "node build/build-exe.js",
+    "docker:build": "docker build -t minecraftstats/demo-server:latest .",
+    "docker:run": "docker compose up -d"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.28.2",
+    "postject": "^1.0.0-alpha.6"
+  }
 }
