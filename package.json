@@ -1,0 +1,10 @@
+{
+  "name": "demo-server",
+  "version": "1.0.0",
+  "description": "A demo Minecraft server that emulates Java and Bedrock server status responses to showcase mcstats.de Server Status features.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "license": "MIT"
+}

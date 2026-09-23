@@ -1,0 +1,16 @@
+{
+  "javaPort": 25565,
+  "bedrockPort": 19132,
+  "motd": "§6mcstats.de §fDemo Server",
+  "subMotd": "Powered by mcstats.de",
+  "protocolVersion": 763,
+  "versionName": "1.20.1",
+  "bedrockProtocolVersion": 622,
+  "bedrockVersionName": "1.20.40",
+  "maxPlayers": 100,
+  "onlinePlayers": 42,
+  "samplePlayers": ["Notch", "Jeb_", "Dinnerbone", "Grumm"],
+  "gamemode": "Survival",
+  "levelName": "world",
+  "faviconPath": "favicon.png"
+}
