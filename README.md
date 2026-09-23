@@ -73,7 +73,22 @@ Pre-built binaries for tagged versions are also attached to the [GitHub Releases
 
 ## Docker
 
-Build and run with Docker:
+### Pull from GitHub Container Registry
+
+Every push to `main` and every `vX.Y.Z` tag is built and published automatically by [`.github/workflows/docker-publish.yml`](.github/workflows/docker-publish.yml) as a GitHub Package:
+
+```bash
+docker pull ghcr.io/minecraftstats/demo-server:latest
+docker run -d --name demo-server \
+  -p 25565:25565/tcp \
+  -p 19132:19132/udp \
+  -v "$(pwd)/config.json:/app/config.json:ro" \
+  ghcr.io/minecraftstats/demo-server:latest
+```
+
+See the package page: [ghcr.io/minecraftstats/demo-server](https://github.com/minecraftstats/demo-server/pkgs/container/demo-server)
+
+### Build locally
 
 ```bash
 docker build -t minecraftstats/demo-server .

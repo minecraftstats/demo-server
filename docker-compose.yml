@@ -1,7 +1,8 @@
 services:
   demo-server:
-    build: .
-    image: minecraftstats/demo-server:latest
+    image: ghcr.io/minecraftstats/demo-server:latest
+    # Uncomment to build from source instead of pulling the published package:
+    # build: .
     container_name: demo-server
     restart: unless-stopped
     ports:
